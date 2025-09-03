@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 
 // ---------------- CREATE & SET JWT COOKIE ----------------
 export function setAuthCookie(res, payload) {
-  // Choose cookie name based on role
   const cookieName = payload.role === 'admin' ? 'admin_token' : 'intern_token';
 
   const token = jwt.sign(
@@ -13,39 +12,37 @@ export function setAuthCookie(res, payload) {
 
   res.cookie(cookieName, token, {
     httpOnly: true,
-    sameSite: 'lax',
-    secure: process.env.NODE_ENV === 'production',
-    path: '/', 
+    sameSite: 'None',      // ✅ allow cross-site cookies (Vercel <-> Render)
+    secure: true,          // ✅ required for HTTPS-only environments
+    path: '/',
     maxAge: 7 * 24 * 60 * 60 * 1000
   });
 }
 
 // ---------------- CLEAR COOKIE ON LOGOUT ----------------
 export function clearAuthCookies(res) {
-  // Clear both, safer in case role is unknown
   res.clearCookie('intern_token', {
     httpOnly: true,
-    sameSite: 'lax',
-    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'None',   // ✅ must match setAuthCookie
+    secure: true,
     path: '/'
   });
   res.clearCookie('admin_token', {
     httpOnly: true,
-    sameSite: 'lax',
-    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'None',   // ✅ must match setAuthCookie
+    secure: true,
     path: '/'
   });
 }
 
 // ---------------- REQUIRE VALID JWT ----------------
 export function authRequired(req, res, next) {
-  // Look for either admin or intern token
   const token = req.cookies?.admin_token || req.cookies?.intern_token;
   if (!token) return res.status(401).json({ error: 'Unauthorized' });
 
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = payload; // attach user info (id, email, role)
+    req.user = payload;
     next();
   } catch (err) {
     console.error('JWT verification failed:', err.message);
