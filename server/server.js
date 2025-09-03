@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 
 // ✅ allow CORS from your Vercel frontend
 app.use(cors({
-  origin: "https://seat-reservation-system-iota.vercel.app/", // your frontend URL
+  origin: "https://seat-reservation-system-iota.vercel.app", // your frontend URL
   credentials: true
 }));
 
