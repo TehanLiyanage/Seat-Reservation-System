@@ -1,3 +1,5 @@
+const API_BASE = "";
+
 const $ = (q) => document.querySelector(q);
 
 // ---------------- API HELPER ----------------
