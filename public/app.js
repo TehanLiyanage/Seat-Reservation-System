@@ -1,3 +1,5 @@
+const API_BASE = "https://seat-reservation-system-frpd.onrender.com";
+
 // ---------------- SHORTCUT ----------------
 const $ = (q) => document.querySelector(q);
 const seatsDiv = $('#seats');
@@ -20,7 +22,7 @@ const showAuth = (show) => {
 
 // ---------------- API HELPER ----------------
 async function api(path, options = {}) {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE}${path}`, {
     method: options.method || 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -196,10 +198,11 @@ $('#btnRegister').onclick = async () => {
 
 $('#btnLogout').onclick = async () => {
   try {
-    await fetch('/api/auth/logout', {
-      method: 'POST',
-      credentials: 'include'
-    });
+    await fetch(`${API_BASE}/auth/logout`, {
+    method: 'POST',
+    credentials: 'include'
+  });
+
   } finally {
     alert("Logged out!");
     showAuth(true); // show login

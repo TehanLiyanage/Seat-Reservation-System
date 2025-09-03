@@ -1,10 +1,10 @@
-const API_BASE = "";
+const API_BASE = "https://seat-reservation-system-frpd.onrender.com";
 
 const $ = (q) => document.querySelector(q);
 
 // ---------------- API HELPER ----------------
 async function api(path, options = {}) {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE}${path}`, {
     method: options.method || 'GET',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
