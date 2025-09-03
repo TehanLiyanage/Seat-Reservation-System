@@ -1,0 +1,20 @@
+background: linear-gradient(135deg,  #04a9f5, #27d495, #206ad8);
+
+animation: gradientShift 8s ease infinite;
+
+<div class="bg-gradient-to-r from-green-600/80 to-blue-600/80 p-6"><h2 class="text-center text-2xl font-bold text-white">Intern Login</h2><p class="text-center text-white/90 mt-1 text-sm">Access your daily logbook and task tracker</p></div>
+
+
+
+
+
+
+
+index.html
+
+<!-- <header>
+<h1>Seat Reservation – Intern</h1>
+<nav>
+<button id="btnLogout" class="secondary">Logout</button>
+</nav>
+</header> -->

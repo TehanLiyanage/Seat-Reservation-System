@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seat Reservation – Admin</title>
+  <link rel="stylesheet" href="/admin.css">
+  <style>
+    /* ✅ Inline fallback if admin.css doesn’t include */
+    #aReservations, #aSeats {
+      max-height: 300px;      
+      overflow-y: auto;       
+      border: 1px solid #ddd;
+      padding: 5px;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🔹 Modern Header -->
+<header class="app-header">
+  <div class="logo">Admin Dashboard</div>
+  <nav class="nav-links">
+    <!-- <button onclick="location.href='index.html'" class="secondary">Intern</button>
+    <button onclick="location.href='admin.html'" class="secondary">Admin</button> -->
+    <button id="btnALogout" class="danger hidden">Logout</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Admin Login -->
+  <section id="aAuth">
+    <div class="login-card">
+      <button onclick="location.href='login.html'" class="back-btn" style="font-size: 12px; margin-top:5px; ">Back to Home</button>
+      <h2 class="login-title">Log in to your account</h2>
+      <p style="font-size: 14px; margin-bottom:1px; color:rgb(117, 117, 117)"><b>Email</b></p>
+      <input id="aEmail" placeholder="Enter your email" type="email" />
+      <p style="font-size: 14px; margin-bottom:1px; color:rgb(117, 117, 117)"><b>Password</b></p>
+      <input id="aPassword" placeholder="Enter password" type="password" />
+      <button id="btnALogin">Log in</button>
+    </div>
+  </section>
+
+
+  <!-- Admin Dashboard -->
+  <section id="aApp" class="hidden">
+    <div class="card">
+      <h2>Welcome, Admin</h2>
+    </div>
+
+    <div class="grid-2">
+      <!-- Seats -->
+      <div class="card">
+        <h2>Seats</h2>
+        <div class="row">
+          <input id="seatNumber" placeholder="Seat number" />
+          <input id="seatLocation" placeholder="Location/Area" />
+          <select id="seatStatus">
+            <option>available</option>
+            <option>unavailable</option>
+          </select>
+          <input id="seatBranch" placeholder="Branch (optional)" />
+          <button id="btnAddSeat">Add Seat</button>
+        </div>
+        <button id="btnLoadSeats">Load Seats</button>
+        <div id="aSeats"></div>
+      </div>
+
+      <!-- Reservations -->
+      <div class="card">
+        <h2>Reservations</h2>
+        <div class="row">
+          <label>Date <input id="rDate" type="date"></label>
+          <input id="rInternId" placeholder="Intern ID (optional)">
+          <button id="btnLoadReservations">Load</button>
+        </div>
+        <div id="aReservations"></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <!-- Manual Assign -->
+      <div class="card">
+        <h2>Manual Assign</h2>
+        <div class="row">
+          <select id="mIntern"></select>
+          <select id="mSeat"></select>
+          <input id="mDate" type="date">
+          <select id="mSlot">
+            <option>MORNING</option>
+            <option>AFTERNOON</option>
+            <option>EVENING</option>
+          </select>
+          <button id="btnManualAssign">Assign</button>
+        </div>
+      </div>
+
+      <!-- Usage Report -->
+      <div class="card">
+        <h2>Usage Report</h2>
+        <div class="row">
+          <label>From <input id="repFrom" type="date"></label>
+          <label>To <input id="repTo" type="date"></label>
+          <button id="btnReport">Generate</button>
+        </div>
+        <div id="aReport"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="/admin.js"></script>
+</body>
+</html>

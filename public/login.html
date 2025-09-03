@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seat Reservation – Welcome</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ---------- Gradient Background ---------- */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg,  #04a9f5, #27d495, #206ad8);
+      background-size: 200% 200%;
+      animation: gradientShift 8s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ---------- Container ---------- */
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #1c3f72;
+      font-size: 1.8em;
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    /* ---------- Option Cards ---------- */
+    .option {
+      background: #fff;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 30px 20px;
+      flex: 1;
+      min-width: 150px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .option:hover {
+      border-color: #1c3f72;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .option.selected {
+      background: #1c3f72;
+      color: #fff;
+      border-color: #1c3f72;
+    }
+
+    .option i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* ---------- Buttons ---------- */
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-back {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .btn-continue {
+      background: #1c3f72;
+      color: #fff;
+    }
+
+    .btn-continue:hover {
+      background: #16325a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Seat Reservation System</h1>
+    <p><b>Choose User Role:</b></p>
+
+    <div class="options">
+      <div class="option" id="adminOption">
+        <i>🔧</i>
+        <strong>Admin</strong>
+      </div>
+      <div class="option" id="internOption">
+        <i>👤</i>
+        <strong>Intern</strong>
+      </div>
+    </div>
+
+    <div class="actions">
+      <!-- <button class="btn btn-back" onclick="resetSelection()">Back</button> -->
+      <button class="btn btn-continue" onclick="goNext()">Continue</button>
+    </div>
+  </div>
+
+  <script>
+    let selected = null;
+
+    const adminOption = document.getElementById('adminOption');
+    const internOption = document.getElementById('internOption');
+
+    adminOption.onclick = () => selectOption('admin');
+    internOption.onclick = () => selectOption('intern');
+
+    function selectOption(type) {
+      selected = type;
+      adminOption.classList.remove('selected');
+      internOption.classList.remove('selected');
+      if (type === 'admin') adminOption.classList.add('selected');
+      if (type === 'intern') internOption.classList.add('selected');
+    }
+
+    function resetSelection() {
+      selected = null;
+      adminOption.classList.remove('selected');
+      internOption.classList.remove('selected');
+    }
+
+    function goNext() {
+      if (!selected) {
+        alert("Please select a user type first.");
+        return;
+      }
+      if (selected === 'admin') window.location.href = 'admin.html';
+      if (selected === 'intern') window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+/* ---------- Global Styles ---------- */
+:root {
+  --bg: #f5f5f5;
+  --card: #ffffff;
+  --text: #333;
+  --muted: #777;
+  --accent: #3498db;
+  --danger: #d9534f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background:  #f5f5f5;
+  color: var(--text);
+}
+
+/* ---------- Modern Header ---------- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 22px;
+  background: linear-gradient(135deg,  #04a9f5, #27d495, #206ad8);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.app-header .logo {
+  font-size: 1.7em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.app-header .nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.app-header button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ---------- Layout ---------- */
+main {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card);
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 🔹 Strong hidden fix */
+.hidden {
+  display: none !important;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+  gap: 12px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width:800px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  header { flex-wrap: wrap; }
+}
+
+/* ---------- Inputs ---------- */
+input, select, button {
+  padding: 8px 12px;
+  margin: 6px 6px 6px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 3px rgba(52,152,219,0.4);
+}
+
+/* ---------- Buttons ---------- */
+button {
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+button.secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+button.secondary:hover {
+  background: #ddd;
+}
+
+button.danger {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+button.danger:hover {
+  background: #c9302c;
+}
+
+/* ---------- Seats ---------- */
+#seats {
+  margin-top: 15px;
+}
+
+.seat {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.seat strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+}
+
+.seat small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.seat button {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 90px;
+  align-self: center; /* ✅ Centers the Book button */
+}
+
+/* Available seats */
+.seat.ok {
+  border-color: #10b981;
+  box-shadow: 0 0 4px rgba(16,185,129,0.4);
+}
+
+/* Busy (unavailable) seats */
+.seat.busy {
+  opacity: 0.6;
+}
+
+/* ---------- Misc ---------- */
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ---------- Intern Login Container ---------- */
+#auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(95vh - 150px);
+}
+
+.login-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-title {
+  margin: 0 0 10px 0;
+  font-size: 25px;
+  font-weight: 600;
+  color: #111;
+}
+
+.input-label {
+  font-size: 14px;
+  margin-bottom: 1px;
+  color: rgb(117, 117, 117);
+}
+
+.login-card input {
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 12px;
+  font-size: 14px;
+  background: #f5f5f5;
+  width: 100%;  
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 3px rgba(52,152,219,0.4);
+}
+
+.login-card button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Back button styling */
+.back-btn {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  font-size: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: #f5f5f5;
+  color: #333;
+}
+
+.back-btn:hover {
+  background: rgb(207, 207, 207);
+}
+
+/* Toggle text under forms */
+.toggle-text {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 1px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0px;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+  background-color: white;
+}

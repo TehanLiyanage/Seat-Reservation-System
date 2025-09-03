@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seat Reservation – Intern</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<!-- 🔹 Modern Header -->
+<header class="app-header">
+  <div class="logo">Intern Dashboard</div>
+  <nav class="nav-links">
+    <button id="btnLogout" class="danger hidden">Logout</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- AUTH SECTION -->
+  <section id="auth">
+    <div class="login-card">
+
+      <!-- Login Form -->
+      <div id="loginForm">
+        <button onclick="location.href='login.html'" class="back-btn">Back to Home</button>
+        <h2 class="login-title">Log in to your account</h2>
+
+        <p class="input-label"><b>Email</b></p>
+        <input id="loginEmail" placeholder="Enter your email" type="email" />
+
+        <p class="input-label"><b>Password</b></p>
+        <input id="loginPassword" placeholder="Enter password" type="password" />
+
+        <button id="btnLogin">Log in</button>
+
+        <p class="toggle-text">
+          Don’t have an account?
+          <button type="button" class="link-btn" onclick="showRegister()">Register</button>
+        </p>
+      </div>
+
+      <!-- Register Form -->
+      <div id="registerForm" class="hidden">
+        <button onclick="location.href='login.html'" class="back-btn">Back to Home</button>
+        <h2 class="login-title">Register</h2>
+
+        <p class="input-label"><b>Full name</b></p>
+        <input id="regName" placeholder="Enter your full name" />
+
+        <p class="input-label"><b>Email</b></p>
+        <input id="regEmail" placeholder="Office email" type="email" />
+        <p class="hint">Registration restricted to office domains.</p>
+
+        <p class="input-label"><b>Password</b></p>
+        <input id="regPassword" placeholder="Password" type="password" />
+
+        <button id="btnRegister">Register</button>
+
+        <p class="toggle-text">
+          Already have an account?
+          <button type="button" class="link-btn" onclick="showLogin()">Log in</button>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP SECTION (hidden until login) -->
+  <section id="app" class="hidden">
+    <div class="app-container">
+      <div class="card">
+        <h2>Book a Seat</h2>
+        <label>Date <input id="date" type="date" /></label>
+        <label>Time Slot
+          <select id="slot">
+            <option value="MORNING">MORNING (09:00–13:00)</option>
+            <option value="AFTERNOON">AFTERNOON (13:00–17:00)</option>
+            <option value="EVENING">EVENING (17:00–20:00)</option>
+          </select>
+        </label>
+        <button id="btnLoadSeats">Load Seats</button>
+        <div id="seats" class="grid"></div>
+      </div>
+
+      <div class="card">
+        <h2>My Reservations</h2>
+        <div id="myReservations"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="/app.js"></script>
+<script>
+  function showRegister() {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("registerForm").classList.remove("hidden");
+  }
+
+  function showLogin() {
+    document.getElementById("registerForm").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+  }
+</script>
+</body>
+</html>

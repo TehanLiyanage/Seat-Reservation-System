@@ -1,0 +1,214 @@
+/* ---------- Global Styles ---------- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ---------- Modern Header ---------- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 22px;
+  background: linear-gradient(135deg,  #04a9f5, #27d495, #206ad8);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.app-header .logo {
+  font-size: 1.7em;
+  /* color: #1c3f72; */
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.app-header .nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.app-header button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: #fff;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+/* ---------- Layout ---------- */
+.row {
+  display: flex;
+  gap: 10px;
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- Inputs ---------- */
+input, select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 3px rgba(52,152,219,0.4);
+}
+
+/* ---------- Buttons ---------- */
+button {
+  padding: 7px 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: #3498db;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+button.secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+button.secondary:hover {
+  background: #ddd;
+}
+
+button.danger {
+  background: #d9534f;
+}
+
+button.danger:hover {
+  background: #c9302c;
+}
+
+/* ---------- Scrollable Lists ---------- */
+#aSeats,
+#aReservations,
+#aReport {
+  max-height: 300px;       
+  overflow-y: auto;        
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+}
+
+#aSeats .row,
+#aReservations .row,
+#aReport .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+#aSeats .row:last-child,
+#aReservations .row:last-child,
+#aReport .row:last-child {
+  border-bottom: none;
+}
+
+
+/* ---------- Admin Login Container ---------- */
+#aAuth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(95vh - 150px); /* full viewport minus header */
+}
+
+.login-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-title {
+  margin: 0 0 10px 0;
+  font-size: 25px;
+  font-weight: 600;
+  color: #111;
+}
+
+.login-card input {
+  padding: 10px 12px;
+  border: 0px solid #ccc;
+  border-radius: 12px;
+  font-size: 14px;
+  background: #f5f5f5;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 3px rgba(52,152,219,0.4);
+}
+
+.login-card button {
+  padding: 10px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+/* Back button styling */
+.back-btn {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  font-size: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  background:  #f5f5f5;
+  color: #333;
+}
+
+.back-btn:hover {
+  background:rgb(207, 207, 207)
+}
+
