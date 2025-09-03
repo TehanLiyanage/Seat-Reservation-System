@@ -1,4 +1,4 @@
-const API_BASE = "https://seat-reservation-system-frpd.onrender.com";
+const API_BASE = "https://seat-reservation-system-frpd.onrender.com/api";
 
 const $ = (q) => document.querySelector(q);
 
