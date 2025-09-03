@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import bcrypt from 'bcrypt';
+import cors from 'cors';  
 
 import authRoutes from './routes/auth.js';
 import seatRoutes from './routes/seats.js';
@@ -16,6 +17,12 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// ✅ allow CORS from your Vercel frontend
+app.use(cors({
+  origin: "https://seat-reservation-system-iota.vercel.app/", // your frontend URL
+  credentials: true
+}));
 
 app.use(express.json());
 app.use(cookieParser());
